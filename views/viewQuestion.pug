@@ -1,0 +1,41 @@
+extends layout
+
+block content
+    h1 #{title} 
+    a(href='/newQuestion/new') Submit a new Question
+    end
+    |
+    br 
+    end
+    |
+    a(href='/') Home
+    end
+    |
+    br 
+    |
+    a(href='/login') Log In!
+    end
+    |
+    br
+    |
+    a(href='/signup') Sign up
+        end
+        |
+        br 
+        |
+        a(href='/dashboard') Dashboard
+        end
+        |
+        br
+        |
+        if questions  
+            ul
+            each question in questions 
+                li 
+                a(class = "questionLinks", href='/newQuestion/new/' + question.question)
+                    |Question: #{question.question}  ,   
+                    |Answer:  #{question.answer}    ,   
+                    |Author:  #{question.author}    ,   
+                    |Time Created:  #{question.createdAt}
+
+                

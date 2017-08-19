@@ -1,0 +1,19 @@
+extends layout
+block content
+    h1= title
+    |
+    br
+    end
+        |
+        a(href='/') Home
+    end
+        |
+    form(name="add-estimation", method="post")
+        div.input
+            span.label UserName: 
+            input(type="text", name="username")
+        div.input
+            span.label Password
+            input(type="text", name="password")
+        div.actions
+            input(type="submit", value="Log In")

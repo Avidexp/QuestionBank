@@ -1,0 +1,31 @@
+extends layout
+block content
+    h1= title
+    |
+    br
+    end
+        |
+        a(href='/') Home
+    end
+        |
+        p Question to Update:
+        p= author 
+        end
+        |
+        p= question
+        end
+        |
+        h3= author 
+        end 
+    form(name="add-estimation", method="post")
+        div.input
+            span.label Question
+            input(type="text", name="question",rows="15", cols="30" value=question, required)
+        div.input
+            span.label Answer 
+            textarea(name="answer", cols="80", rows="20" value= answer, required)
+        div.input
+            span.label Author
+            input(type="text", name="author", value= author, required)
+        div.actions
+            input(type="submit", value="add")

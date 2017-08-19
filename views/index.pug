@@ -1,0 +1,42 @@
+extends layout
+
+block content
+    h1= title
+    |
+    end
+    |
+    p Welcome to #{title}
+    |
+        a(class = 'button', href='/newQuestion/new/') Submit a new Question
+        end
+        |
+        br 
+        |
+        a(href='/signup') Sign Up!
+        end
+        |
+        br
+        |
+        a(href='/login') Log In!
+        end
+        |
+        br
+        |
+        a(href='/') Home
+        end
+            |
+            br
+            |
+            a(href='/dashboard') Dashboard
+            end
+            |
+            br
+            |
+            if questions  
+                ul
+                each question in questions 
+                    li 
+                        |Question: #{question.question}  ,   
+                        |Answer:  #{question.answer}    ,   
+                        |Author:  #{question.author}    ,   
+                        |Time Created:  #{question.createdAt}

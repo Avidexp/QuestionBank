@@ -1,0 +1,12 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #e6e6e6;
+}
+
+a {
+  color: #00B7FF;
+}
+
+
+a.questionLinks:hover {font-size:150%;}

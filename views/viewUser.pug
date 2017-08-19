@@ -1,0 +1,28 @@
+extends layout
+
+block content
+    h1= title
+    |
+    end
+    |
+    if users  
+        each user in users 
+            p Welcome #{user.username}, the email you used to sign up is #{user.email}
+            end
+                a(class = 'button', href='/newQuestion/new/') Submit a new Question
+                end
+                |
+                br 
+                |
+                a(href='/signup') Sign Up!
+                end
+                |
+                br
+                |
+                a(href='/login') Log In!
+                end
+                |
+                br
+                |
+                a(href='/') Home
+                end

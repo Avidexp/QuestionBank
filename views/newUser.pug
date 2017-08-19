@@ -7,16 +7,18 @@ block content
         |
         a(href='/') Home
     end
+        | #{error}
+        br
         |
-    form(name="add-estimation", method="post")
-        div.input
-            span.label Email:
-            input(type="text", name="email", required)
-        div.input
-            span.label UserName: 
-            input(type="text", name="username" required)
-        div.input
-            span.label Password
-            input(type="text", name="password" required)
-        div.actions
-            input(type="submit", value="Create User")
+        form(name="add-estimation", method="post")
+            div.input
+                span.label Email:
+                input(type="text", name="email", required)
+            div.input
+                span.label UserName: 
+                input(type="text", name="username" required)
+            div.input
+                span.label Password
+                input(type="text", name="password" required)
+            div.actions
+                input(type="submit", value="Create User")

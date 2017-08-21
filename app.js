@@ -1,4 +1,5 @@
 var express = require('express');
+var app = express();
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
@@ -12,7 +13,6 @@ var router = express.Router();
 //PathFinder
 
 
-var app = express();
 
 app.use(session({
     cookieName: 'session',

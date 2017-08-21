@@ -1,7 +1,30 @@
 var User = require('../models/user.model');
+var jwt = require('jsonwebtoken');
 
-exports.loginCheck = function(req,res,next){
-    if (req.session && req.session.user) { // Check if session exists  
+
+
+exports.verifyToken = function(req, res) {
+
+    var token = process.env.token || req.body.token || req.query.token || req.headers['x-access-token'];
+    if (token) {
+
+        res.render("dashboard", { authtoken: token });
+    } else {
+        res.send("You do not have a token");
+    }
+    // nJwt.verify(token, signingKey, function(err, verifiedJwt) {
+    //     if (err) {
+    //         res.send(err); // Token has expired, has been tampered with, etc
+    //     } else {
+    //         res.send("YOU ARE CONNECTED USING THE TOKEN" + token);
+    //     }
+    // });
+}
+
+
+
+/*
+ if (req.session && req.session.user) { // Check if session exists  
     // lookup the user in the DB by pulling their email from the session
       User.findOne({ email: req.session.user.email }, function (err, user) {
         if (!user) {
@@ -23,4 +46,5 @@ exports.loginCheck = function(req,res,next){
     } else {
       res.render('login', {error : "Please Log in First"});
     }
-  };
+
+*/

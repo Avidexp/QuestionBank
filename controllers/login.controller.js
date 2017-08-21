@@ -57,6 +57,7 @@ exports.checkLogin = function(req, res, next) {
                     iss: 'questionbank',
                 }
                 var jwt = nJwt.create(claims, 'questionbank');
+                jwt.setExpiration(new Date().getTime() + (60 * 60 * 1000));
                 // Stores user info in session cookie
                 var token = jwt.compact();
                 process.env.token = token;

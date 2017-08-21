@@ -1,5 +1,6 @@
 var User = require('../models/user.model');
 var jwt = require('jsonwebtoken');
+var nJwt = require('njwt');
 
 
 
@@ -7,8 +8,15 @@ exports.verifyToken = function(req, res) {
 
     var token = process.env.token || req.body.token || req.query.token || req.headers['x-access-token'];
     if (token) {
+        nJwt.verify(token, 'questionbank', function(err, verifiedJwt) {
+            if (err) {
+                console.log(err); // Token has expired, has been tampered with, etc 
+            } else {
+                console.log(verifiedJwt.body);
+                res.render("dashboard", { authtoken: verifiedJwt.body.sub }); // Will contain the header and body 
+            }
+        });
 
-        res.render("dashboard", { authtoken: token });
     } else {
         res.send("You do not have a token");
     }

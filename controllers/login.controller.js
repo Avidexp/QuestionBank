@@ -50,8 +50,10 @@ exports.checkLogin = function(req, res, next) {
             if (payload == 0) {
                 res.render('login', { error: "invalid username or password" });
             } else {
+
+                console.log(payload[0].username);
                 var claims = {
-                    sub: payload,
+                    sub: payload[0].username,
                     iss: 'questionbank',
                 }
                 var jwt = nJwt.create(claims, 'questionbank');

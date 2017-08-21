@@ -37,7 +37,7 @@ exports.checkLogin = function(req, res, next) {
             } else {
                 req.session.user = payload;
                 // Stores user info in session cookie
-                return res.json({ token: jwt.sign({ email: payload.email, username: payload.username, _id: payload._id }, 'RESTFULAPIs') });
+                res.json({ token: jwt.sign({ email: payload.email, username: payload.username, _id: payload._id }, 'QuestionBank') });
                 res.render('viewUser', {
                     title: "Successful Login Attempt",
                     users: payload

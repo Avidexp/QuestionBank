@@ -48,6 +48,7 @@ exports.getFromController = function(req, res, next) {
 
 //gets the current question to update
 exports.getUpdateQuestion = function(req, res, next) {
+    console.log(req.params);
     newQuestion.aggregate([{
             $match: {
                 question: req.params.question,
@@ -56,6 +57,7 @@ exports.getUpdateQuestion = function(req, res, next) {
             }
         }],
         function(err, payload) {
+            console.log(payload);
             if (err) {
                 next(err);
             } else {
@@ -65,6 +67,7 @@ exports.getUpdateQuestion = function(req, res, next) {
                     author: req.params.author,
                     answer: req.params.answer
                 });
+
             }
         });
 };

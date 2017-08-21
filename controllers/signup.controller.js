@@ -50,7 +50,7 @@ exports.addNewUser = function(req, res, next) {
                         if (err) {
                             next(err);
                         } {
-                            return res.send("You have successfully created a User");
+                            return res.render('index', { title: "Question Bank", message: "User Created Successfully" });
                         }
                     }); // end of save
                 }

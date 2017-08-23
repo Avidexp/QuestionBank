@@ -51,7 +51,6 @@ exports.checkLogin = function(req, res, next) {
                 res.render('login', { error: "invalid username or password" });
             } else {
 
-                console.log(payload[0].username);
                 var claims = {
                     sub: payload[0].username,
                     iss: 'questionbank',
@@ -63,6 +62,7 @@ exports.checkLogin = function(req, res, next) {
                 process.env.token = token;
 
                 var base64SigningKey = signingKey.toString('base64');
+                console.log(token);
                 res.redirect('/dashboard');
                 // return the information including token as JSON
 
@@ -103,5 +103,4 @@ exports.verifyToken = function(req, res) {
                         message: 'Enjoy your token!',
                         token: token
                     });
-
     */
